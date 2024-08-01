@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta char_bioet="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Hover Effects</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #0b6c69;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .box:hover {
+            background-color: #1ac9c0;
+            transform: scale(1.1);
+        }
+
+        /* Animation keyframes */
+        @keyframes hoverEffect1 {
+            0%, 25% { background-color: #0b6c69; transform: scale(1.2); }
+            10%, 15% { background-color: #1ac9c0; transform: scale(1.1); }
+        }
+
+        @keyframes hoverEffect2 {
+            0%, 50% { background-color: #0b6c69; transform: scale(1.2); }
+            35%, 40% { background-color: #1ac9c0; transform: scale(1.1); }
+        }
+
+        @keyframes hoverEffect3 {
+            0%, 75% { background-color: #0b6c69; transform: scale(1.2); }
+            60%, 65% { background-color: #1ac9c0; transform: scale(1.1); }
+        }
+
+        /* Apply animations */
+        .box:nth-child(1) {
+            animation: hoverEffect1 5s infinite;
+        }
+        .box:nth-child(2) {
+            animation: hoverEffect2 5s infinite;
+        }
+        .box:nth-child(3) {
+            animation: hoverEffect3 5s infinite;
+        }
+
+        .scrollbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: #f0f0f0;
+}
+
+.progress {
+    width: 100%;
+    background: #0b6c69;
+    height: 20%; /* Initial value */
+    cursor: pointer;
+    transition: height 0.25s;
+}
+
+.content {
+    padding: 20px;
+    height: 2000px; /* Adjust the height to make the page scrollable */
+}
+
+/* slideshow */
+
+.slideshow-container {
+    position: relative;
+    max-width: 50%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: none;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+    </style>
+</head>
+<body style="background-color: #2d2d2d;">
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+   
+
+    <div class="slideshow-container">
+        <div class="slides fade">
+            <img src="./1070.jpg" style="width:100%">
+        </div>
+        <div class="slides fade">
+            <img src="./66.png" style="width:100%">
+        </div>
+        <div class="slides fade">
+            <img src="./3.png" style="width:100%">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const progress = document.querySelector('.progress');
+    let isDragging = false;
+
+    progress.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        document.body.style.userSelect = 'none';
+        updateScrollPosition(e);
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            updateScrollPosition(e);
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        document.body.style.userSelect = 'auto';
+    });
+
+    const updateScrollPosition = (e) => {
+        const scrollbarHeight = document.querySelector('.scrollbar').offsetHeight;
+        const progressHeight = progress.offsetHeight;
+        const clickY = e.clientY - document.querySelector('.scrollbar').offsetTop;
+
+        let newHeight = (clickY / scrollbarHeight) * 100;
+        if (newHeight < 0) newHeight = 0;
+        if (newHeight > 100) newHeight = 100;
+
+        progress.style.height = newHeight + '%';
+
+        const contentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        window.scrollTo(0, (newHeight / 100) * contentHeight);
+    };
+});
+
+
+// alisdeshow
+let slideIndex = 0;
+let slides = document.getElementsByClassName("slides");
+let timer;
+
+function showSlides() {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
+    timer = setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+
+function plusSlides(n) {
+    clearTimeout(timer); // Clear the timer when manually changing slides
+    slideIndex += n;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    if (slideIndex < 1) { slideIndex = slides.length }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+    timer = setTimeout(showSlides, 2000); // Restart the timer
+}
+
+showSlides(); // Initial call to start the slideshow
+
+    </script>
+</body>
+</html>

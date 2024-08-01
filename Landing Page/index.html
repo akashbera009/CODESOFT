@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Spring Borad</title>
+</head>
+<body>
+    <div class="sideNavbar">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-home"></i>
+        <i class="fas fa-location-arrow fa-rotate-by" style="--fa-rotate-angle: -45deg;"></i>
+        <i class="fas fa-briefcase"></i>
+        <i class="fas fa-code"></i>
+        <i class="fas fa-comment-alt"></i>
+        <i class="far fa-dot-circle"></i>
+        <i class="fas fa-ellipsis-h"></i>
+        <div class="space"></div>
+        <i class="fas fa-cog"></i>
+        <i class="fas fa-th"></i>
+        <i class="far fa-question-circle"></i>
+        
+    </div>
+    <div class="up_navbar">
+        <img class="up_navbar_img" src="./img/navbar-white-new.png"></img>
+        <div class="explorer">
+            <i class="fas fa-compass" ></i>
+            <p class="explore_text">Explore</p>
+        </div>
+        
+        <div class="searchbar">
+            <div class="language_select">EN <i class="fas fa-sort-down"></i></div>
+            <input type="text" class="search" placeholder="What do you want to learn?">
+            <i class="fas fa-search" id="search"></i>
+        </div>
+        <i class="far fa-bell"></i>
+        <div class="account_avator"><img src="./img/3.png"></div>
+    </div>
+
+    <div class="centerArea">
+        <div class="slideShow">
+            <i class="fas fa-chevron-circle-left" id="previous" onclick="plusSlides(-1)"></i>
+            <div class="Slide_image_container">
+                <div class="slides fade">
+                    <img src="./img/1.jpeg"  style="width:100%">
+                </div>
+                <div class="slides fade">
+                    <img src="./img/2.jpeg"  style="width:100%">
+                </div>
+                <div class="slides fade">
+                    <img src="./img/3.jpeg"  style="width:100%">
+                </div>
+            </div>
+            <i class="fas fa-chevron-circle-right" id="next" onclick="plusSlides(1)"></i>
+        </div>
+        <h1>Hey, Akash! Still online? Here you can learn at any time !</h1>
+        <div class="mid_content_div">
+
+            <div class="left_content_div">
+                <div class="activity short_panel"> 
+                    <i class="fas fa-lightbulb"></i>
+                    <p>0 activities</p>  
+                    <i class="fas fa-angle-down"></i>
+                </div>
+                <div class="assignment short_panel">
+                     <i class="far fa-dot-circle"></i>
+                     <p>0 assigned trainings </p>  
+                     <i class="fas fa-angle-down"></i>
+                    </div>
+                <div class="for_you_panel long_panel">
+                    <i class="fas fa-magic"></i>
+                    <p>For You</p>
+                    <ul>
+                        <li>Continue Learning</li>
+                        <li>My Trainings</li>
+                        <li>My Favorite Channels</li>
+                        <li>Based on your Interest</li>
+                    </ul>
+                    <i class="fas fa-angle-down"></i>
+                </div>
+                <div class="in_focus_panel long_panel">
+                    <i class="fas fa-shapes"></i>
+                    <p>In Focus </p>
+                    <ul style="width: 20vw; margin-left: 25vw;">
+                        <li>Curated content</li>
+                        <li>From your region</li>
+                    </ul>
+                    <i class="fas fa-angle-down"></i>
+                </div>
+                <div class="blogs long_panel">
+                    <i class="fas fa-comments"></i>
+                    <p>Latest Blogs</p>
+                    <i class="fas fa-angle-down"></i>
+                </div>
+          
+            </div>
+
+            <div class="right_content_div">
+                <div class="learning_hours">
+                    <h3>Learning Hours</h3>
+                    <div class="div"> <i class="fas fa-clock"></i> 1h 11m this fiscal year</div>
+                    <a href="">More</a>
+                </div>
+
+                <div class="badge">
+                    <h3 style="width: 100%; margin-left:1.5rem ; margin-top: 1rem;">Badges</h3>
+                    <p style="position: relative;left: -2rem;">You have earned a new badge</p>
+                    <div class="earned" style="margin-left:1.5rem;">
+                        <img src="./img/bdg1.png">
+                        <div class="earned_bio">
+                            <p style="font-size: 1rem; font-weight: 700;">Duelist</p>
+                            <p>Awarded On: Apr 18, 2024</p>
+                        </div>
+                      
+                    </div>
+                    <p style="width: 100%; margin-left:1.5rem">Your next Badge</p>
+                    <img src="./img/bdg2.png" style="margin-left:1.5rem">
+                    <img src="./img/bdg3.png">
+                    <img src="./img/bdg4.png">
+                    <a href="" style="width: 100%; margin-left:15rem" >More</a>
+                </div>
+                <div class="advertising_slide_show">
+                     <i class="fas fa-angle-left" id="previousADD" onclick="plusSlidesADD(1)"></i>
+                    <div class="advertising_image_container">
+                        <div class="fade slidesADD">
+                            <img src="./img/ad1.png"  style="width:100%">
+                        </div>
+                        <div class="fade slidesADD">
+                            <img src="./img/ad2.png"  style="width:100%">
+                        </div>
+                        <div class="fade slidesADD">
+                            <img src="./img/ad3.png"  style="width:100%">
+                        </div>
+                    </div>
+                    <i class="fas fa-angle-right" id="nextADD" onclick="plusSlidesADD(1)"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        let slides = document.getElementsByClassName("slides");
+        let timer;
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            timer = setTimeout(showSlides, 4000); // Change image every 2 seconds
+        }
+
+        function plusSlides(n) {
+            clearTimeout(timer); // Clear the timer when manually changing slides
+            slideIndex += n;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            if (slideIndex < 1) { slideIndex = slides.length }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+            timer = setTimeout(showSlides, 4000); // Restart the timer
+        }
+
+        showSlides(); // Initial call to start the slideshow
+
+        //advertisement 
+        let slideIndexADD = 0;
+        let slidesADD = document.getElementsByClassName("slidesADD");
+        let timerADD;
+
+        function showSlidesADD() {
+            for (let i = 0; i < slidesADD.length; i++) {
+                slidesADD[i].style.display = "none";
+            }
+            slideIndexADD++;
+            if (slideIndexADD > slidesADD.length) { slideIndexADD = 1 }
+            slidesADD[slideIndexADD - 1].style.display = "block";
+            timerADD = setTimeout(showSlidesADD, 2000); // Change image every 2 seconds
+        }
+
+        function plusSlidesADD(n) {
+            clearTimeout(timer); // Clear the timer when manually changing slides
+            slideIndexADD += n;
+            if (slideIndexADD > slidesADD.length) { slideIndexADD = 1 }
+            if (slideIndexADD < 1) { slideIndexADD = slidesADD.length }
+            for (let i = 0; i < slidesADD.length; i++) {
+                slidesADD[i].style.display = "none";
+            }
+            slidesADD[slideIndexADD - 1].style.display = "block";
+            timer = setTimeout(showSlidesADD, 2000); // Restart the timer
+        }
+
+        showSlidesADD(); // Initial call to start the slideshow
+    </script>
+</body> 
+</html>
